@@ -1,0 +1,135 @@
+/*
+ * Project: liquid-glass
+ * File: liquid-glass.css
+ * Author: SYSTEM-NTDEV-PRO <2920160872@qq.com>
+ * Copyright (c) 2026 LGOS Studio
+ * License: MIT
+ */
+
+ /* Light Mode */
+
+:root {
+  color-scheme: auto;
+}
+
+.liquid {
+  --liquid-radius: 9999px;
+  --liquid-padding: 1rem 1.25rem;
+  --liquid-bg: rgba(255, 255, 255, 0.08);
+  --liquid-border: rgba(51, 51, 51, 0.08);
+  --liquid-blur: 8px;
+  --liquid-highlight: rgba(255, 255, 255, 0.85);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 3.5rem;
+  min-height: 3rem;
+  padding: var(--liquid-padding);
+  border: 1px double var(--liquid-border);
+  border-radius: var(--liquid-radius);
+  background: var(--liquid-bg);
+  color: rgba(17, 24, 39, 0.92);
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(calc(var(--liquid-blur) * 0.35)) saturate(160%);
+  -webkit-backdrop-filter: blur(calc(var(--liquid-blur) * 0.35)) saturate(160%);
+  box-shadow:
+    inset 1.5px -1.5px 1px -1px rgba(255, 255, 255, 0.92),
+    inset -1.5px 1.5px 1px -1px rgba(255, 255, 255, 0.9),
+    inset 0 0 3px rgba(15, 23, 42, 0.35),
+    0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.liquid::before,
+.liquid::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.liquid::before {
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border: 1px double rgba(0, 0, 0, 0.9);
+  filter: blur(var(--liquid-blur));
+}
+
+.liquid::after {
+  inset: 0;
+}
+
+.liquid > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark Mode */
+
+.liquid-dark {
+  --liquid-radius: 9999px;
+  --liquid-padding: 1rem 1.25rem;
+  --liquid-bg: rgba(18, 18, 28, 0.55);
+  --liquid-border: rgba(148, 163, 184, 0.22);
+  --liquid-blur: 12px;
+  --liquid-highlight: rgba(226, 232, 240, 0.75);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 3.5rem;
+  min-height: 3rem;
+  padding: var(--liquid-padding);
+  border: 1px double var(--liquid-border);
+  border-radius: var(--liquid-radius);
+  color: rgba(226, 232, 240, 0.95);
+  text-decoration: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(calc(var(--liquid-blur) * 0.4)) saturate(180%) brightness(1.05);
+  -webkit-backdrop-filter: blur(calc(var(--liquid-blur) * 0.4)) saturate(180%) brightness(1.05);
+  box-shadow:
+    inset 1.5px -1.5px 1px -1px var(--liquid-highlight),
+    inset -1.5px 1.5px 1px -1px rgba(226, 232, 240, 0.65),
+    inset 0 0 12px rgba(2, 6, 23, 0.6),
+    0 8px 24px rgba(2, 6, 23, 0.45),
+    0 2px 6px rgba(2, 6, 23, 0.3);
+}
+
+.liquid-dark::before,
+.liquid-dark::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.liquid-dark::before {
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border: 1px double rgba(226, 232, 240, 0.5);
+  filter: blur(var(--liquid-blur));
+}
+
+.liquid-dark::after {
+  inset: 0;
+}
+
+.liquid-dark > * {
+  position: relative;
+  z-index: 1;
+}
